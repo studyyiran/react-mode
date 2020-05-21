@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { globalStore } from "../store";
 import { constValue } from "../constValue";
-import { safeEqual } from "./util";
+import {safeEqual} from "./index";
 interface IAjax {
   get: (url: string, data?: any) => void;
   post: (url: string, data?: any) => void;

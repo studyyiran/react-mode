@@ -4,7 +4,7 @@ import {
   OriginDataContext
 } from "../../context/originData";
 import useReducerMiddleware from "./useReducerMiddleware";
-import { isServer } from "../utils/util";
+import { isServer } from "../utils";
 import { ISsrFileStore } from "../interface";
 
 /*
