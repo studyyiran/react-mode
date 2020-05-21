@@ -6,5 +6,5 @@ interface ITestName {
 }
 
 export const MainPage: React.FC<ITestName> = props => {
-  return <div className="main-page">123</div>;
+  return <div className="main-page">1234</div>;
 }

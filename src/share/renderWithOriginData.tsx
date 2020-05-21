@@ -7,10 +7,12 @@ import {OriginDataContextProvider} from "../context/originData";
 export function RenderWithOriginData(props: any) {
   return (
       // ssr
-      <GlobalSettingContextProvider>
+
         <OriginDataContextProvider>
+          <GlobalSettingContextProvider>
           {props.children}
+          </GlobalSettingContextProvider>
         </OriginDataContextProvider>
-      </GlobalSettingContextProvider>
+
   );
 }
