@@ -6384,8 +6384,8 @@ less-loader@^6.1.0:
 
 less@^3.11.1:
   version "3.11.1"
-  resolved "https://registry.npm.taobao.org/less/download/less-3.11.1.tgz#c6bf08e39e02404fe6b307a3dfffafdc55bd36e2"
-  integrity sha1-xr8I454CQE/mswej3/+v3FW9NuI=
+  resolved "https://registry.yarnpkg.com/less/-/less-3.11.1.tgz#c6bf08e39e02404fe6b307a3dfffafdc55bd36e2"
+  integrity sha512-tlWX341RECuTOvoDIvtFqXsKj072hm3+9ymRBe76/mD6O5ZZecnlAOVDlWAleF2+aohFrxNidXhv2773f6kY7g==
   dependencies:
     clone "^2.1.2"
     tslib "^1.10.0"

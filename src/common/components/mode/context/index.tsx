@@ -4,8 +4,8 @@ import React, {
   useEffect
 } from "react";
 import { IReducerAction, IContextValue } from "common/interface";
-// import { callBackWhenPassAllFunc } from "buy/common/utils/util";
-// import { useIsCurrentPage } from "buy/common/useHook";
+// import { callBackWhenPassAllFunc } from "common/utils/util";
+// import { useIsCurrentPage } from "common/useHook";
 import useReducerMiddleware from "common/useHook/useReducerMiddleware";
 
 import {IStoreTestNameActions, useStoreTestNameGetActions} from "./useGetActions";

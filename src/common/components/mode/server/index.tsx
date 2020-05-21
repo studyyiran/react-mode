@@ -1,4 +1,4 @@
-import ajax from "buy/common/utils/ajax";
+import ajax from "common/utils/ajax";
 import { getTestAjaxResultMock } from "./mock";
 
 /**
