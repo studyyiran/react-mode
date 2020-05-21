@@ -3,11 +3,10 @@ import React, {
   useReducer,
   useEffect
 } from "react";
-import { IReducerAction } from "buy/common/interface/index.interface";
+import { IReducerAction, IContextValue } from "common/interface";
 // import { callBackWhenPassAllFunc } from "buy/common/utils/util";
 // import { useIsCurrentPage } from "buy/common/useHook";
-import useReducerMiddleware from "buy/common/useHook/useReducerMiddleware";
-import { IContextValue } from "buy/common/type";
+import useReducerMiddleware from "common/useHook/useReducerMiddleware";
 
 import {IStoreTestNameActions, useStoreTestNameGetActions} from "./useGetActions";
 

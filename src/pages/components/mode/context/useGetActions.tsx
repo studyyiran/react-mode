@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from "react";
-import { IReducerAction } from "buy/common/interface/index.interface";
+import { IReducerAction } from "common/interface";
 import { storeTestNameServer } from "../server";
 import { IStoreTestNameState, storeTestNameReducerTypes } from "./index";
 
