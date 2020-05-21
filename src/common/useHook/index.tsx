@@ -2,12 +2,13 @@
 当url变化的时候,返回给我们监听的ual
  */
 import { useRouteMatch } from "react-router-dom";
-import {UseGetParams} from "../../common-modules/commonUseHook";
+import {useGetParams} from "./useGetParams";
+
 
 // 每当url变化的时候.我们都更新最新的url参数返回去
 export function useWhenUrlChange(paramKey: string) {
   try {
-    const params: any = UseGetParams();
+    const params: any = useGetParams();
     return params[paramKey];
   } catch (e) {
     console.error(e);
@@ -23,8 +24,4 @@ export function useIsCurrentPage(pagePath: string) {
     console.error(e);
   }
   return false;
-}
-
-export function heh() {
-
 }
