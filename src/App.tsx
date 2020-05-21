@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import {TestName} from './pages/components/mode/index'
+import {TestName} from './common/components/mode/index'
 import './App.css';
 
 function App() {
