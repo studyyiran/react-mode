@@ -1,3 +1,5 @@
+import { createBrowserHistory, createMemoryHistory } from "history";
+
 export function safeEqual(a: any, b: any) {
   return String(a) === String(b);
 }
@@ -14,3 +16,11 @@ export function isServer() {
     }
   }
 }
+
+export function scrollTop() {
+  window.scrollTo(0, 0);
+}
+
+export const routerHistory = isServer()
+    ? createMemoryHistory()
+    : createBrowserHistory();

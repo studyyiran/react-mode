@@ -34,6 +34,7 @@ export function useGetOriginData(
         });
         // 赋值到本地store
         if (storeJson) {
+          // @ts-ignore
           dispatch({
             type: mergeOriginDataReducerKey,
             value: storeJson.storeData
