@@ -1,6 +1,20 @@
-@test2: 1;
+@import 'index1';
 
-.text {
+.text() {
+  //@property: font-weight;
+  //@{property}: @test2 * 100;
+}
+
+.addbg() {
+  background: grey;
+}
+
+#add-font-size(@testhehe) {
+  @property: font-size;
+    @{property}: @testhehe * 100px;
+}
+
+#add-font-weight(@testhaha) {
   @property: font-weight;
-  @{property}: @test2 * 100;
+    @{property}: @testhaha * 100;
 }
