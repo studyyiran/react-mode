@@ -1,7 +1,6 @@
+import "./index.less";
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.less";
-// import "common/styles/index.less";
 import Routers from "./routers";
 import {isServer} from "common/utils";
 
