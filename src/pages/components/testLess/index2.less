@@ -23,3 +23,12 @@
 #hello(@rules) {
   @result: @rules;
 }
+
+#hello2(@rules) {
+  #remformat() {
+    @result: 1rem / 37.5;
+  }
+  #remformat();
+  @px: @result / 2;
+  @rules();
+}

@@ -20,3 +20,11 @@
 .test-mixin {
           color: #hello(green)[];
 }
+
+@p: {
+  .text-font {
+    font-size: 10 * @px;
+  }
+
+}
+#hello2(@p);

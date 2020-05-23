@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import "./index.less";
 import {TestLess} from "../components/testLess";
+import {TestMb} from "../components/testMb";
 
 interface ITestName {
 
@@ -9,5 +10,6 @@ interface ITestName {
 export const MainPage: React.FC<ITestName> = props => {
   return <div className="main-page">
     <TestLess />
+    <TestMb />
   </div>;
 }
