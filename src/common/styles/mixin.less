@@ -25,21 +25,28 @@
     @rules();
   }
   @media (max-width: 750px) {
-    @f: 1px / @mbvalue / 2;
-    @px: 1rem / 37.5 / @mbvalue / 2;
-    @rules();
+    #remformat() {
+      @px: 1rem / 37.5 / 2;
+    }
+    #mb-calc;
   }
   // 选择420是因为，手机大部分会在420px一下。
   // 但是所谓的1px 1px 并不理想。而且我现在也没有设计 图 因此我先使用100px 会做成50px的感觉的方案
   @media (max-width: 420px) {
-    @f: 1px / @mbvalue;
-    @px: 1rem / 37.5 / @mbvalue;
-    @rules();
+    #remformat() {
+      @result: 1rem / 37.5;
+    }
+    #mb-calc;
   }
   @media (min-width: 10px) {
     //@f: 1px;
     //@px: 1px * 1920 / 1920;
     //@rules();
+  }
+  #mb-calc() {
+    @f: 1px / @mbvalue;
+    @px: #remformat()[] / @mbvalue;
+    @rules();
   }
 }
 
