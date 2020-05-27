@@ -44,8 +44,8 @@
     //@rules();
   }
   #mb-calc() {
-    @f: 1px / @mbvalue;
-    @px: #remformat()[] / @mbvalue;
+    @f: 1px * @mbvalue;
+    @px: #remformat()[] * @mbvalue;
     @rules();
   }
 }
