@@ -50,6 +50,18 @@
   }
 }
 
+.font(@size, @weight: unset, @color: unset) {
+  font-size: 1 * @size * @px;
+  .mb({
+    @mbvalue: 13 / 15;
+    font-size: @size * @px;
+  });
+  font-weight: @weight;
+  color: @color;
+}
+
+
+
 .mb-padding() {
   .mb({
     padding-left: 16 *@px;
