@@ -3,11 +3,10 @@ import React from 'react';
 // import ReactDom from 'react-dom';
 // 注意是什么包体
 import ReactDOMServer from 'react-dom/server';
-import {TestPage} from "../share/test";
 
 import {matchPath, StaticRouter} from 'react-router-dom'
 import {routerConfig} from '../share/routerConfig'
-import {RootRouter} from '../share/router'
+import {AppWithRouter} from '../share/appWithRouter'
 const fs = require('fs')
 const path = require('path')
 
@@ -32,7 +31,7 @@ function hehe (req, res) {
     console.log(url)
     const context = {};
     // renderToString(req, res, <StaticRouter context={context} location={url}><RootRouter /></StaticRouter>)
-    renderToString(req, res, <StaticRouter context={context} location={url}><RootRouter /></StaticRouter>)
+    renderToString(req, res, <StaticRouter context={context} location={url}><AppWithRouter /></StaticRouter>)
     // renderToNodeStream(req, res, Component)
     // 获取后返回？
 }
