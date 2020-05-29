@@ -20,7 +20,3 @@ export function isServer() {
 export function scrollTop() {
   window.scrollTo(0, 0);
 }
-
-export const routerHistory = isServer()
-    ? createMemoryHistory()
-    : createBrowserHistory();

@@ -1,11 +1,17 @@
 import React from "react";
 import {MainPage} from "../pages/main";
+import {SubPage} from "../pages/sub";
 
 export const routerConfig = [
   {
-    path: "/focus",
-    title: "Focus",
+    path: "/main",
+    title: "main",
     Component: MainPage
+  },
+  {
+    path: "/sub",
+    title: "sub",
+    Component: SubPage
   },
   // {
   //   title: "404 | UpTradeit.com",
