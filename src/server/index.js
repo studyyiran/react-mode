@@ -49,7 +49,7 @@ function renderToString(req, res, jsx) {
     // 为什么他会认为我在根路径，而不是server.js的文件路径呢？
     // console.log(__dirname)
     // console.log(path.resolve(__dirname, '../'))
-    let template = fs.readFileSync(path.resolve(__dirname, '../public/index.html'), {
+    let template = fs.readFileSync("public/index.html", {
         encoding: "utf-8"
     });
     template = template.replace('INNER', result)

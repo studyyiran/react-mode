@@ -9,9 +9,10 @@ import './index.less';
 
 export const AppWithRouter = () => {
   // 这段脚本只在浏览器运行 从window中获取.进行脱水
-  let originData: IOriginData[] = (window as any).SSRDATA
-    ? (window as any).SSRDATA
-    : undefined;
+    const originData = {}
+  // let originData: IOriginData[] = (window as any).SSRDATA
+  //   ? (window as any).SSRDATA
+  //   : undefined;
   // router是最外层
   // 然后是provider层,这样store可以使用router的信息
   // 然后是组件渲染层.
