@@ -5,9 +5,8 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
 import {matchPath, StaticRouter} from 'react-router-dom'
-// import {routerConfig} from '../share/routerConfig'
-// import {AppWithRouter} from '../share/appWithRouter'
-import {Test} from '../share/test'
+import {routerConfig} from '../share/routerConfig'
+import {AppWithRouter} from '../share/appWithRouter'
 const fs = require('fs')
 const path = require('path')
 
@@ -16,14 +15,23 @@ const app = express();
 function hehe (req, res) {
     const url = req.url;
     // 这块路由匹配是一套。ssr是一套。单元没问题
-    // const targetRouter = routerConfig.find(({component, ...other}) => {
-    //     return matchPath(url, {...other})
-    // })
+    const targetRouter = routerConfig.find(({component, ...other}) => {
+        return matchPath(url, {...other})
+    })
+    if (targetRouter && targetRouter.component) {
+        // const Component = targetRouter.component
+        // 路由匹配
+        // const jsx = <RootRouter history={StaticRouterHistory} Component={Component} />
+        // 传入html头 尾
 
+        // 传入外部的layout
+
+    } else {
+    }
     console.log(url)
     const context = {};
     // renderToString(req, res, <StaticRouter context={context} location={url}><RootRouter /></StaticRouter>)
-    renderToString(req, res, <StaticRouter context={context} location={url}><Test /></StaticRouter>)
+    renderToString(req, res, <StaticRouter context={context} location={url}><AppWithRouter /></StaticRouter>)
     // renderToNodeStream(req, res, Component)
     // 获取后返回？
 }
@@ -41,12 +49,9 @@ function renderToString(req, res, jsx) {
     // 为什么他会认为我在根路径，而不是server.js的文件路径呢？
     // console.log(__dirname)
     // console.log(path.resolve(__dirname, '../'))
-    let template = fs.readFileSync('public/index.html', {
+    let template = fs.readFileSync(path.resolve(__dirname, '../public/index.html'), {
         encoding: "utf-8"
     });
-    // let template = fs.readFileSync(path.resolve(__dirname, '../public/index.html'), {
-    //     encoding: "utf-8"
-    // });
     template = template.replace('INNER', result)
     // send 只能写一次
     res.send(template);
