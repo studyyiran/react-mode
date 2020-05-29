@@ -78,6 +78,7 @@
     "build": "node scripts/build.js",
     "buildserver": "node scripts/buildserver.js",
     "buildserver1": "npx webpack --config config/webpackserver.config.js",
+    "buildserver0": "npx webpack --config config/webpack.config.server",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
