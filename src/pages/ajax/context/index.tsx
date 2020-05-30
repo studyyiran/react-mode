@@ -9,6 +9,7 @@ import { IReducerAction, IContextValue } from "common/interface";
 import useReducerMiddleware from "common/useHook/useReducerMiddleware";
 
 import {IStoreAjaxPageActions, useStoreAjaxPageGetActions} from "./useGetActions";
+import {useGetOriginData} from "../../../common/useHook/useGetOriginData";
 
 export const StoreAjaxPageContext = createContext({} as IStoreAjaxPageContext);
 
@@ -32,14 +33,16 @@ export function StoreAjaxPageContextProvider(props: any) {
   const initState: IStoreAjaxPageState = {
     userSunnyValue: 101
   };
-  const [state, dispatch] = useReducer(
-    useReducerMiddleware(reducer),
-    initState
+  const [state, dispatch, useClientRepair] = useGetOriginData(
+      reducer,
+      initState,
+      StoreAjaxPage
   );
   const action: IStoreAjaxPageActions = useStoreAjaxPageGetActions(state, dispatch);
 
   const propsValue: IStoreAjaxPageContext = {
     ...action,
+    useClientRepair,
     storeAjaxPageContextValue: state,
     storeAjaxPageContextDispatch: dispatch
   };

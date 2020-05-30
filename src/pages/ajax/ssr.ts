@@ -6,6 +6,7 @@ import { StoreAjaxPage } from "./context";
 import {
     IOriginData
 } from "common/interface";
+import {storeAjaxPageServer} from "./server";
 
 export const ajaxPageSsr = async (url: string, href: string) => {
     console.log(href);
@@ -18,10 +19,13 @@ export const ajaxPageSsr = async (url: string, href: string) => {
     const store = {
         storeName: StoreAjaxPage,
         storeData: {
-            userSunnyValue: 777
+            userSunnyValue: 0
         }
     }
-
+    const result = await storeAjaxPageServer.getTestAjaxResult()
+    if (result) {
+        store.storeData.userSunnyValue = result.userSunnyValue
+    }
     ssrRes.storeList.push(store)
 
     return ssrRes
