@@ -24,7 +24,7 @@ export const ajaxPageSsr = async (url: string, href: string) => {
     }
     const result = await storeAjaxPageServer.getTestAjaxResult()
     if (result) {
-        store.storeData.userSunnyValue = result.userSunnyValue
+        store.storeData.userSunnyValue = result.sunnyCount
     }
     ssrRes.storeList.push(store)
 

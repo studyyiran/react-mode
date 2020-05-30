@@ -28,13 +28,18 @@ async function hehe(req, res) {
   console.log(JSON.stringify(originData));
   const context = {};
   // renderToString(req, res, <StaticRouter context={context} location={url}><RootRouter /></StaticRouter>)
-  renderToString(
+  let template = renderToString(
     req,
     res,
     <StaticRouter context={context} location={url}>
       <AppWithRouter originData={originData} />
     </StaticRouter>
   );
+  template = template.replace(
+      /(<\/head>)/,
+      "<script>var SSRDATA=" + JSON.stringify(originData) + ";</script>$1"
+  );
+  res.send(template)
   // renderToNodeStream(req, res, Component)
   // 获取后返回？
 }
@@ -57,8 +62,9 @@ function renderToString(req, res, jsx) {
     encoding: "utf-8",
   });
   template = template.replace("INNER", result);
+  return template
   // send 只能写一次
-  res.send(template);
+  // res.send(template);
 }
 
 function renderToNodeStream(req, res, Component) {
