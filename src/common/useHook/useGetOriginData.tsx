@@ -5,7 +5,7 @@ import {
 } from "../../context/originData";
 import useReducerMiddleware from "./useReducerMiddleware";
 import { isServer } from "../utils";
-import { ISsrFileStore } from "../interface";
+import { IOriginData } from "../interface";
 
 /*
 
@@ -27,7 +27,7 @@ export function useGetOriginData(
       // 立刻关闭
       setNeedClientRepair(false);
       // 目前的需求都是url参数能够满足的.
-      getInitialProps(window.location.pathname, window.location.href).then((res: ISsrFileStore) => {
+      getInitialProps(window.location.pathname, window.location.href).then((res: IOriginData) => {
         const { storeList } = res;
         const storeJson = storeList.find(({ storeName }) => {
           return storeName === currentStoreName;

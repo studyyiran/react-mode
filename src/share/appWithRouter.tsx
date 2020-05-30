@@ -3,11 +3,15 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { isServer, scrollTop } from "common/utils";
 import { routerConfig } from "share/routerConfig";
 import { RenderWithOriginData } from "share/renderWithOriginData";
-import { IOriginData } from "context/originData";
 import hocDocumentTitle from "common/components/documentTitle";
 import "./index.less";
+import {IOriginData} from "../common/interface";
 
-export const AppWithRouter = (originData?: IOriginData[]) => {
+interface IRootRouter {
+    originData?: IOriginData
+}
+
+export const AppWithRouter: React.FC<IRootRouter> = ({originData}) => {
   // 这段脚本只在浏览器运行 从window中获取.进行脱水
 
   // router是最外层

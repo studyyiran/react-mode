@@ -1,5 +1,5 @@
-git pull
-yarn install
+#git pull
+#yarn install
 yarn run buildserver
 yarn run build
 mv testbuild/server.js build/server.js

@@ -4,12 +4,12 @@
 
 import { StoreAjaxPage } from "./context";
 import {
-    ISsrFileStore
+    IOriginData
 } from "common/interface";
 
 export const ajaxPageSsr = async (url: string, href: string) => {
     console.log(href);
-    const ssrRes: ISsrFileStore = {
+    const ssrRes: IOriginData = {
         ssrConfig: {
             ssrTitle: ""
         },

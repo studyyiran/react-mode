@@ -4,10 +4,15 @@ import React from "react";
 import { GlobalSettingContextProvider } from "../context";
 import { OriginDataContextProvider } from "../context/originData";
 import { StoreAjaxPageContextProvider } from "../pages/ajax/context";
+import {IOriginData} from "../common/interface";
 
-export function RenderWithOriginData(props: any) {
+interface IRenderWithOriginData {
+    originData?: IOriginData
+}
+
+export const RenderWithOriginData: React.FC<IRenderWithOriginData> = props => {
   return (
-    <OriginDataContextProvider>
+    <OriginDataContextProvider originData={props.originData}>
       <GlobalSettingContextProvider>
         <StoreAjaxPageContextProvider>
           {props.children}

@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import {
   IReducerAction,
-  ISsrFileStore
+  IOriginData
 } from "common/interface/";
 import useReducerMiddleware from "../../common/useHook/useReducerMiddleware";
 
@@ -15,13 +15,13 @@ export const OriginDataContext = createContext({});
 // store name
 const storeName = "OriginData";
 
-export interface IOriginData {
+export interface IStoreInfo {
   storeName: string;
   storeData: any;
 }
 // @store state
 interface IContextState {
-  originData: ISsrFileStore;
+  originData: IOriginData;
   needClientRepair: boolean;
 }
 

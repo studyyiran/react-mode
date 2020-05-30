@@ -1,17 +1,17 @@
-import { IOriginData } from "../../context/originData";
+import { IStoreInfo } from "../../context/originData";
 
 export interface IReducerAction {
   type: string;
   value?: any;
 }
 
-export interface ISsrFileStore {
+export interface IOriginData {
   ssrConfig: {
     ssrTitle: string;
     metaDesc?: string;
     jsonInfo?: string;
   };
-  storeList: IOriginData[];
+  storeList: IStoreInfo[];
 }
 
 export interface IContextValue {
