@@ -8,6 +8,9 @@ if (!isServer()) {
   (window as any).LOCATIONENV = "buy";
 }
 
+const dom : any = document.querySelector('#currentenv')
+dom.innerHTML = 'isclient'
+
 // client入口 client only.
 ReactDOM.hydrate(
   <BrowserRouter>
