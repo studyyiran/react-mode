@@ -23,7 +23,7 @@ export function useStoreAjaxPageGetActions(
       async function() {
         const res = await storeAjaxPageServer.getTestAjaxResult();
         dispatch({
-          type: storeAjaxPageReducerTypes.setTestValue,
+          type: storeAjaxPageReducerTypes.setUserSunnyValue,
           value: res
         });
       },

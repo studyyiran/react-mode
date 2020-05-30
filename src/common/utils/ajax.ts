@@ -1,7 +1,7 @@
 import Axios from "axios";
 import { globalStore } from "../store";
 import { constValue } from "../constValue";
-import {safeEqual} from "./index";
+import { safeEqual } from "./index";
 interface IAjax {
   get: (url: string, data?: any) => void;
   post: (url: string, data?: any) => void;
@@ -19,76 +19,77 @@ const transUrl = (url: string) => {
 };
 
 // 下面是所有api提取
-const getRootApi = function(urlRoot: string) {
-  let apiRoot = "https://qa-gateway.uptradeit.com";switch (process.env.REACT_APP_SERVER_ENV) {
-    case "QA":
-      if (process.env.SSR_SERVER) {
-        //ssr
-        apiRoot =
-          "http://internal-qa-gateway-inner-1734987249.us-east-2.elb.amazonaws.com";
-      } else {
-        //web
-        apiRoot = "https://qa-gateway.uptradeit.com";
-      }
-      break;
-    case "UAT":
-      if (process.env.SSR_SERVER) {
-        //ssr
-        apiRoot =
-          "http://internal-demo-gateway-inner-1838539681.us-east-2.elb.amazonaws.com";
-      } else {
-        //web
-        apiRoot = "https://demo-gateway.uptradeit.com";
-      }
-      break;
-    case "PUB":
-      if (process.env.SSR_SERVER) {
-        //ssr
-        apiRoot =
-          "http://internal-prod-gateway-inner-2143196506.us-east-2.elb.amazonaws.com";
-      } else {
-        //web
-        apiRoot = "https://api-gateway.uptradeit.com";
-      }
-      break;
-  }
+const getRootApi = function (urlRoot: string) {
+  let apiRoot = "http://139.224.2.112";
+  // switch (process.env.REACT_APP_SERVER_ENV) {
+  //   case "QA":
+  //     if (process.env.SSR_SERVER) {
+  //       //ssr
+  //       apiRoot =
+  //         "http://internal-qa-gateway-inner-1734987249.us-east-2.elb.amazonaws.com";
+  //     } else {
+  //       //web
+  //       apiRoot = "https://qa-gateway.uptradeit.com";
+  //     }
+  //     break;
+  //   case "UAT":
+  //     if (process.env.SSR_SERVER) {
+  //       //ssr
+  //       apiRoot =
+  //         "http://internal-demo-gateway-inner-1838539681.us-east-2.elb.amazonaws.com";
+  //     } else {
+  //       //web
+  //       apiRoot = "https://demo-gateway.uptradeit.com";
+  //     }
+  //     break;
+  //   case "PUB":
+  //     if (process.env.SSR_SERVER) {
+  //       //ssr
+  //       apiRoot =
+  //         "http://internal-prod-gateway-inner-2143196506.us-east-2.elb.amazonaws.com";
+  //     } else {
+  //       //web
+  //       apiRoot = "https://api-gateway.uptradeit.com";
+  //     }
+  //     break;
+  // }
   // apiRoot = "https://api-gateway.uptradeit.com";
   return apiRoot + urlRoot;
 };
 
 const ajax: IAjax = {} as any;
-ajax.post = function(url, data) {
+ajax.post = function (url, data) {
   console.log("post ajax: ", transUrl(url), JSON.stringify(data));
   return ajax.fetch({
     url: transUrl(url),
     method: "post",
-    data
+    data,
   });
 };
 
-ajax.put = function(url, data) {
+ajax.put = function (url, data) {
   console.log("put ajax: ", transUrl(url), JSON.stringify(data));
   return ajax.fetch({
     url: transUrl(url),
     method: "put",
-    data
+    data,
   });
 };
 
-ajax.delete = function(url, data) {
+ajax.delete = function (url, data) {
   console.log("delete ajax: ", transUrl(url), JSON.stringify(data));
   return ajax.fetch({
     url: transUrl(url),
     method: "DELETE",
-    data: data
+    data: data,
   });
 };
 
-ajax.get = function(url, data) {
+ajax.get = function (url, data) {
   console.log("get ajax: ", transUrl(url), JSON.stringify(data));
   if (data) {
     let tag = "?";
-    Object.keys(data).map(key => {
+    Object.keys(data).map((key) => {
       url += `${tag}${key}=${data[key]}`;
       tag = "&";
     });
@@ -96,11 +97,11 @@ ajax.get = function(url, data) {
   return ajax.fetch({
     url: transUrl(url),
     method: "GET",
-    data
+    data,
   });
 };
 
-ajax.fetch = function(config) {
+ajax.fetch = function (config) {
   // 暂时插入处理函数
   if (globalStore) {
     const state = globalStore.getState();
@@ -114,7 +115,7 @@ ajax.fetch = function(config) {
 
   return new Promise((resolve, reject) => {
     Axios(config)
-      .then(res => {
+      .then((res) => {
         // 接收到
         if (res && res.data) {
           const { code, data, success, resultMessage } = res.data;
@@ -135,12 +136,12 @@ ajax.fetch = function(config) {
             // 接口业务性报错
             rejectError(config, reject, {
               code: code,
-              resultMessage: resultMessage
+              resultMessage: resultMessage,
             });
           }
         }
       })
-      .catch(e => {
+      .catch((e) => {
         if (e) {
           const { response } = e;
           if (response) {
@@ -150,7 +151,7 @@ ajax.fetch = function(config) {
               if (safeEqual(data.code, 403)) {
                 globalStore.dispatch({
                   type: "reduxSetToken",
-                  value: null
+                  value: null,
                 });
               }
             }

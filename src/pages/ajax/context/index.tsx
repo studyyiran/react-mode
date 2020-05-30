@@ -16,7 +16,7 @@ export const StoreAjaxPageContext = createContext({} as IStoreAjaxPageContext);
 export const StoreAjaxPage = "StoreAjaxPage";
 // store state
 export interface IStoreAjaxPageState {
-  testValue: number;
+  userSunnyValue: number;
 }
 
 // interface
@@ -30,7 +30,7 @@ export interface IStoreAjaxPageContext
 // store provider
 export function StoreAjaxPageContextProvider(props: any) {
   const initState: IStoreAjaxPageState = {
-    testValue: 101
+    userSunnyValue: 101
   };
   const [state, dispatch] = useReducer(
     useReducerMiddleware(reducer),
@@ -57,7 +57,7 @@ export function StoreAjaxPageContextProvider(props: any) {
 
 // action types
 export const storeAjaxPageReducerTypes = {
-  setTestValue: "setTestValue"
+  setUserSunnyValue: "setUserSunnyValue"
 };
 
 // reducer
@@ -65,10 +65,10 @@ function reducer(state: IStoreAjaxPageState, action: IReducerAction) {
   const { type, value } = action;
   let newState = { ...state };
   switch (type) {
-    case storeAjaxPageReducerTypes.setTestValue: {
+    case storeAjaxPageReducerTypes.setUserSunnyValue: {
       newState = {
         ...newState,
-        testValue: value
+        userSunnyValue: value && value.sunnyCount
       };
       break;
     }

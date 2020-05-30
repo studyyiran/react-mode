@@ -14,7 +14,7 @@ export const StoreAjaxPage = "StoreAjaxPage";
 
 // store state
 export interface IStoreAjaxPageState {
-  testValue: number;
+  userSunnyValue: number;
 }
 
 // store context value
@@ -26,7 +26,7 @@ export interface IStoreAjaxPageContext extends IStoreAjaxPageActions {
 // store provider
 export function StoreAjaxPageContextProvider(props: any) {
   const initState: IStoreAjaxPageState = {
-    testValue: 101
+    userSunnyValue: 101
   };
   const [state, dispatch] = useReducer(reducer, initState);
 
@@ -65,7 +65,7 @@ export function useStoreAjaxPageGetActions (
   const getTestAjaxValue = useCallback(async function() {
     const res = await storeAjaxPageServer.getTestAjaxResult();
     dispatch({
-      type: storeAjaxPageReducerTypes.setTestValue,
+      type: storeAjaxPageReducerTypes.setUserSunnyValue,
       value: res
     });
   }, [dispatch])
@@ -76,7 +76,7 @@ export function useStoreAjaxPageGetActions (
 
 // reducer action types
 export const storeAjaxPageReducerTypes = {
-  setTestValue: "setTestValue"
+  setUserSunnyValue: "setUserSunnyValue"
 };
 
 // reducer
@@ -84,10 +84,10 @@ function reducer(state: IStoreAjaxPageState, action: IReducerAction) {
   const { type, value } = action;
   let newState = { ...state };
   switch (type) {
-    case storeAjaxPageReducerTypes.setTestValue: {
+    case storeAjaxPageReducerTypes.setUserSunnyValue: {
       newState = {
         ...newState,
-        testValue: value
+        userSunnyValue: value
       };
       break;
     }

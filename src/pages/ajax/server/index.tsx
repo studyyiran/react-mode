@@ -4,12 +4,13 @@ import { getTestAjaxResultMock } from "./mock";
 /**
  * 首页相关
  * */
-export const TestAjaxUrl = "/reviewPart/getReviewList";
+const serverName = "/sunny";
+
+const getUserSunnyUrl = serverName + "/getUserSunny";
 
 export const storeAjaxPageServer = {
   getTestAjaxResult: async () => {
-    const res: any = await ajax.get(TestAjaxUrl);
-    return getTestAjaxResultMock;
+    const res: any = await ajax.get(getUserSunnyUrl);
     return res;
   }
 };
