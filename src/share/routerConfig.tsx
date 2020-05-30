@@ -2,12 +2,13 @@ import React from "react";
 import {MainPage} from "../pages/main";
 import {SubPage} from "../pages/sub";
 import {AjaxPage} from "../pages/ajax";
+import {ajaxPageSsr} from "../pages/ajax/ssr";
 
 export const routerConfig = [
   {
     path: "/main",
     title: "main",
-    Component: MainPage
+    Component: MainPage,
   },
   {
     path: "/sub",
@@ -17,7 +18,8 @@ export const routerConfig = [
   {
     path: "/ajax",
     title: "ajax",
-    Component: AjaxPage
+    Component: AjaxPage,
+    getSsrData: ajaxPageSsr
   },
   // {
   //   title: "404 | UpTradeit.com",

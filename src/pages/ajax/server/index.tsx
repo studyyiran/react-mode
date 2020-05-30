@@ -1,5 +1,4 @@
 import ajax from "common/utils/ajax";
-import { getTestAjaxResultMock } from "./mock";
 
 /**
  * 首页相关

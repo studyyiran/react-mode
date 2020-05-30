@@ -12,19 +12,14 @@ const path = require('path')
 
 const app = express();
 
-function hehe (req, res) {
+async function hehe (req, res) {
     const url = req.url;
     // 这块路由匹配是一套。ssr是一套。单元没问题
     const targetRouter = routerConfig.find(({component, ...other}) => {
         return matchPath(url, {...other})
     })
-    if (targetRouter && targetRouter.component) {
-        // const Component = targetRouter.component
-        // 路由匹配
-        // const jsx = <RootRouter history={StaticRouterHistory} Component={Component} />
-        // 传入html头 尾
+    if (targetRouter && targetRouter.component && targetRouter.getSsrData) {
 
-        // 传入外部的layout
 
     } else {
     }
