@@ -1,4 +1,4 @@
-import ajax from "../../../common/utils/ajax";
+import ajax from "../../common/utils/ajax";
 
 /**
  * 首页相关

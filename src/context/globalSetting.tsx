@@ -9,7 +9,7 @@ import { IReducerAction } from "common/interface";
 import {isServer} from "common/utils";
 import ajax from "common/utils/ajax";
 import { useGetOriginData } from "common/useHook/useGetOriginData";
-import { getBlackFiveTime } from "./globalSetting/server";
+import { getBlackFiveTime } from "./server";
 
 export const GlobalSettingContext = createContext({});
 export const StoreNameGlobalSetting = "GlobalSetting";

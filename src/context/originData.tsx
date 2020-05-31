@@ -8,8 +8,8 @@ import React, {
 import {
   IReducerAction,
   IOriginData
-} from "common/interface/";
-import useReducerMiddleware from "../../common/useHook/useReducerMiddleware";
+} from "common/interface";
+import useReducerMiddleware from "../common/useHook/useReducerMiddleware";
 
 export const OriginDataContext = createContext({});
 // store name

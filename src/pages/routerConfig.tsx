@@ -1,8 +1,8 @@
 import React from "react";
-import {MainPage} from "../pages/main";
-import {SubPage} from "../pages/sub";
-import {AjaxPage} from "../pages/ajax";
-import {ajaxPageSsr} from "../pages/ajax/ssr";
+import {MainPage} from "./main";
+import {SubPage} from "./sub";
+import {AjaxPage} from "./ajax";
+import {ajaxPageSsr} from "./ajax/ssr";
 
 export const routerConfig = [
   {

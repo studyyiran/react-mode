@@ -5,8 +5,8 @@ import React from "react";
 import ReactDOMServer from "react-dom/server";
 
 import { matchPath, StaticRouter } from "react-router-dom";
-import { routerConfig } from "../share/routerConfig";
-import { AppWithRouter } from "../share/appWithRouter";
+import { routerConfig } from "../pages/routerConfig";
+import { App } from "../app";
 const fs = require("fs");
 const path = require("path");
 
@@ -27,12 +27,12 @@ async function hehe(req, res) {
   console.log(url);
   console.log(JSON.stringify(originData));
   const context = {};
-  // renderToString(req, res, <StaticRouter context={context} location={url}><RootRouter /></StaticRouter>)
+  // renderToString(req, res, <StaticRouter context={context} location={url}><App /></StaticRouter>)
   let template = renderToString(
     req,
     res,
     <StaticRouter context={context} location={url}>
-      <AppWithRouter originData={originData} />
+      <App originData={originData} />
     </StaticRouter>
   );
   template = template.replace(

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import {AppWithRouter} from "../share/appWithRouter";
+import {App} from "../app";
 import { isServer } from "common/utils";
 import {IOriginData} from "../common/interface";
 
@@ -13,7 +13,7 @@ const originData : IOriginData = (window as any).SSRDATA ? (window as any).SSRDA
 // client入口 client only.
 ReactDOM.hydrate(
   <BrowserRouter>
-    <AppWithRouter originData={originData} />
+    <App originData={originData} />
   </BrowserRouter>,
   document.getElementById("root")
 );
