@@ -1,8 +1,5 @@
 'use strict';
 
-process.env.BABEL_ENV = 'production';
-process.env.NODE_ENV = 'production';
-
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -58,7 +55,6 @@ const lessModuleRegex = /\.module\.less$/;
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function(webpackEnv) {
-  console.log('start')
   const isEnvDevelopment = webpackEnv === 'development';
   const isEnvProduction = webpackEnv === 'production';
 
@@ -133,6 +129,7 @@ module.exports = function(webpackEnv) {
     }
     return loaders;
   };
+
   return {
     target: 'node',
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
