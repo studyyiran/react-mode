@@ -59,11 +59,11 @@ console.log('start')
 module.exports = {
   // 不然webpack也不知道，你是什么环境，这导致一些包例如path会有问题
   target: "node",
-  entry: path.resolve(__dirname, '../src/server/index'),
+  entry: paths.appIndexJsServer,
   // output: './browser/index.js',
   output: {
     // output的路径麻烦一些 revolve
-    path:path.resolve(__dirname, '../testbuild'),
+    path: paths.appBuildServer,
     // filename
     filename: 'server.js'
   },
