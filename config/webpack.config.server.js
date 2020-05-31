@@ -166,7 +166,7 @@ module.exports = function(webpackEnv) {
     ].filter(Boolean),
     output: {
       // output的路径麻烦一些 revolve
-      path:path.resolve(__dirname, '../testbuild'),
+      path: paths.appBuildServer,
       // filename
       filename: 'server.js'
     },
